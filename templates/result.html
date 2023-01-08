@@ -1,0 +1,51 @@
+{% include "base.html" %}
+
+{% block content %}
+<div class="container">
+    <!-- hasil sistem pakar -->
+    <div class="row">
+        <div class="col-lg-12 my-2">
+            <div class="card mx-auto w-75">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Hasil Sistem Pakar</h5>
+                    <p class="card-text">
+                        {% if result %}
+                        Halo <span class="fw-bold">{{nama}}</span>. Waktu yang paling cocok untuk kamu belajar adalah
+                        <span class="fw-bold">{{result}}.</span>
+                        {% else %}
+                        Halo <span class="fw-bold">{{nama}}</span>. Maaf, kami tidak dapat menentukan waktu belajar yang
+                        paling cocok untuk kamu. Silahkan coba lagi.
+                        {% endif %}
+                    </p>
+                    {% if result %}
+                    <p class="card-text">Berikut adalah beberapa saran yang kami berikan untuk kamu:</p>
+                    <ul>
+                        {% if result == "Pagi Hari" %}
+                        <li>Buat jadwal belajar pada <span class="fw-bold">pagi hari</span>, seperti pada pukul <span
+                                class="fw-bold">5 hingga 10 pagi</span>.
+                        </li>
+                        <li>Untuk dapat bangun dengan segar pada waktu tersebut, disarankan untuk tidur sekitar 7-8 jam
+                            sebelumnya.</li>
+                        {% elif result == "Siang Hari" %}
+                        <li>Buat jadwal belajar pada <span class="fw-bold">siang hari</span>, seperti pada pukul <span
+                                class="fw-bold">11 hingga 2 siang</span>.
+                        </li>
+                        <li>Atur kegiatan lain seperti organisasi atau bekerja paruh waktu agar tidak mengganggu jadwal
+                            belajar siang hari.</li>
+                        {% elif result == "Malam Hari" %}
+                        <li>Buat jadwal belajar pada <span class="fw-bold">malam hari</span>, seperti pada pukul <span
+                                class="fw-bold">7 hingga 11 malam</span>.
+                        </li>
+                        <li>Hindari belajar hingga larut malam agar tidak kelelahan untuk belajar keesokan harinya.</li>
+                        {% endif %}
+                    </ul>
+                    {% endif %}
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{% url 'form' %}" class="btn btn-secondary">Kembali</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

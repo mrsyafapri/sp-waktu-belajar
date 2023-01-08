@@ -1,0 +1,77 @@
+{% include "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 my-2">
+            <div class="card mx-auto w-50">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Ayo tentukan waktu belajar yang paling cocok untuk kamu hari ini!
+                    </h5>
+                    <form action="{% url 'result' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group my-2">
+                            <label for="nama">Nama</label>
+                            <input type="text" class="form-control" id="nama" name="nama"
+                                placeholder="Masukkan nama kamu">
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="bangun_pagi">Apakah kamu mengalami kesulitan untuk bangun pagi?</label>
+                            <select class="form-control" id="bangun_pagi" name="bangun_pagi">
+                                <option value="">Pilih</option>
+                                <option value="1">Ya</option>
+                                <option value="0">Tidak</option>
+                            </select>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="begadang">Apakah kamu sering begadang?</label>
+                            <select class="form-control" id="begadang" name="begadang">
+                                <option value="">Pilih</option>
+                                <option value="1">Ya</option>
+                                <option value="0">Tidak</option>
+                            </select>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="fokus">Kapan kamu merasa lebih fokus dan produktif?</label>
+                            <select class="form-control" id="fokus" name="fokus">
+                                <option value="">Pilih</option>
+                                <option value="pagi">Pagi</option>
+                                <option value="siang">Siang</option>
+                                <option value="malam">Malam</option>
+                            </select>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="segar">Kapan kamu merasa lebih segar dan bersemangat?</label>
+                            <select class="form-control" id="segar" name="segar">
+                                <option value="">Pilih</option>
+                                <option value="pagi">Pagi</option>
+                                <option value="siang">Siang</option>
+                                <option value="malam">Malam</option>
+                            </select>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="jadwal_kuliah">Kapan kamu tidak memiliki jadwal kuliah atau kegiatan
+                                lain?</label>
+                            <select class="form-control" id="jadwal_kuliah" name="jadwal_kuliah">
+                                <option value="">Pilih</option>
+                                <option value="pagi">Pagi</option>
+                                <option value="siang">Siang</option>
+                                <option value="malam">Malam</option>
+                            </select>
+                        </div>
+                        <div class="form-group my-2">
+                            <label for="rutinitas">Kapan kamu memiiki rutinitas yang teratur?</label>
+                            <select class="form-control" id="rutinitas" name="rutinitas">
+                                <option value="">Pilih</option>
+                                <option value="pagi">Pagi</option>
+                                <option value="siang">Siang</option>
+                                <option value="malam">Malam</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success my-2">Lihat Hasil</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
